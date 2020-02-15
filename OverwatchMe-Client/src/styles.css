@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Overfont";
+  src: url(./assets/fonts/bignoodletoo.ttf);
+}
+
+@font-face {
+  font-family: "Koverwatch";
+  src: url(./assets/fonts/koverwatch.ttf);
+}
+
+body{
+  background-color: rgb(128, 128, 128);
+}
+
+.container{
+  background-color: lightgrey;
+  padding: 3em;
+}
+
+h1 {
+  font-family: "Overfont";
+  font-size: 700%;
+}

@@ -41,7 +41,6 @@ public class StatResource {
         }catch(Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Profile not found");
         }
-
     }
 
     //Working Apex Get Method

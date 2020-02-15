@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Overwatch Me</h1>
+  <p>
+    Welcome to Overwatch Me Stat Tracker.
+  </p>
+  <p>
+    Select your Overwatch platform and username to view your stats.
+  </p>
+  <form>
+    <div class="form-group">
+      <label for="Platform">Platform</label>
+      <select class="form-control" id="Platform">
+        <option *ngFor="let platform of platforms">
+          {{platform}}
+        </option>
+      </select>
+    </div>
+  </form>
+</div>
