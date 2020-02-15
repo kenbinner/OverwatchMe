@@ -16,16 +16,27 @@ public class StatResource {
 
     //Works for psn and xbl, not for battlenet
 
-    @GetMapping(value="api/{platform}/{playerId}")
+    @GetMapping(value="api/{platform}/{playerId}/{playerNum}")
     public ResponseEntity<String> getStats(@PathVariable("platform") String platform,
-                                           @PathVariable("playerId") String playerId){
+                                           @PathVariable("playerId") String playerId,
+                                           @PathVariable("playerNum") String playerNum){
+
         try{
+            boolean pc = false;
+            System.out.println(playerNum);
+            if(!playerNum.equals("0")){
+                pc = true;
+            }
+
+            if(pc){
+                playerId = playerId + "%23" + playerNum;
+            }
+
             RestTemplate restTemplate = new RestTemplate();
-            String compositeUrl = apiUrl + platform + "/" + playerId +"?TRN-Api-Key=" + apiKey;
+            final String compositeUrl = apiUrl + platform + "/" + playerId +"?TRN-Api-Key=" + apiKey;
             System.out.println("Retrieving from: " + compositeUrl);
             String stats = restTemplate.getForObject(
                     compositeUrl, String.class);
-
             return new ResponseEntity<String>(stats, HttpStatus.OK);
         }catch(Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Profile not found");
