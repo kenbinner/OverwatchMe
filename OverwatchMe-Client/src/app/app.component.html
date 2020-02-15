@@ -1,25 +1,35 @@
 <div class="container">
   <h1>Overwatch Me</h1>
+  <img src="../assets/pics/genji.png" width="40%" style="float: right;">
   <p>
-    Welcome to Overwatch Me Stat Tracker.
+    Welcome to Overwatch Me, a stat tracker for Overwatch.
   </p>
   <p>
     Select your Overwatch platform and username to view your stats.
   </p>
-  <form>
+  <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="Platform">Platform</label>
-      <select class="form-control" id="Platform">
+      <select class="form-control" id="Platform" formControlName="platform">
+        <option value="" disabled>Select Platform</option>
         <option *ngFor="let platform of platforms">
           {{platform}}
         </option>
       </select>
-      <small id="Platform" class="form-text text-muted">Currently we only support Xbox and Playstation. PC will be added soon.</small>
+      <small id="Platform" class="form-text text-muted">Currently we only support Xbox and Playstation. PC will be added
+        soon.</small>
     </div>
     <div class="form-group">
       <label for="PlayerId">Player Id</label>
-      <input type="username" class="form-control" id="PlayerId" placeholder="Enter your username here...">
+      <input type="text" class="form-control" id="PlayerId" formControlName="playerId"
+        placeholder="Enter your username here..." required>
+      <div *ngIf="playerId.invalid && (playerId.dirty || playerId.touched)" class="alert alert-danger">
+        <div *ngIf="playerId.errors.required">
+          Username is required.
+        </div>
+      </div>
     </div>
-    <button type="submit" class="btn btn-warning">Get Stats</button>
+    <button type="submit" class="btn btn-warning" [disabled]="!playerForm.valid">Get Stats</button>
   </form>
+
 </div>
