@@ -12,6 +12,14 @@ body{
   background-color: rgb(128, 128, 128);
 }
 
+form {
+  width: 60%;
+}
+
+label {
+  color: blue;
+}
+
 .container{
   background-color: lightgrey;
   padding: 3em;
