@@ -5,6 +5,7 @@ import org.springframework.http.*;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping
@@ -18,12 +19,18 @@ public class StatResource {
     @GetMapping(value="api/{platform}/{playerId}")
     public ResponseEntity<String> getStats(@PathVariable("platform") String platform,
                                            @PathVariable("playerId") String playerId){
-        RestTemplate restTemplate = new RestTemplate();
+        try{
+            RestTemplate restTemplate = new RestTemplate();
+            String compositeUrl = apiUrl + platform + "/" + playerId +"?TRN-Api-Key=" + apiKey;
+            System.out.println("Retrieving from: " + compositeUrl);
+            String stats = restTemplate.getForObject(
+                    compositeUrl, String.class);
 
-        String stats = restTemplate.getForObject(
-                apiUrl + platform + "/" + playerId +"?TRN-Api-Key=" + apiKey, String.class);
+            return new ResponseEntity<String>(stats, HttpStatus.OK);
+        }catch(Exception e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Profile not found");
+        }
 
-        return new ResponseEntity<String>(stats, HttpStatus.OK);
     }
 
     //Working Apex Get Method
