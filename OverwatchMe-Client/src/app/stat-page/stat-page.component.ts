@@ -14,6 +14,7 @@ export class StatPageComponent implements OnInit {
 
   errorMessage: string;
   pc: boolean = false;
+  loading: boolean = true;
   platform: string;
   playerId: string;
   playerNum: string;
@@ -23,9 +24,14 @@ export class StatPageComponent implements OnInit {
     this.errorMessage = null;
 
     this.getStatsService.getStats(platform,playerId,playerNum).subscribe(
-      data => console.log(data),
-      error => this.errorMessage = <any>error);
-
+      (stats) => {
+        console.log(stats);
+        this.loading = false;
+      },
+      (error) => {
+        this.errorMessage = <any>error
+      }
+      );
   }
 
   ngOnInit() {
