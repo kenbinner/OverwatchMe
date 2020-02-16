@@ -12,13 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     StatPageComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
