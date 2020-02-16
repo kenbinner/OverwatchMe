@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetStatsService } from './get-stats.service';
 
 @Component({
   selector: 'app-stat-page',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatPageComponent implements OnInit {
 
-  constructor() { }
+  errorMessage: string;
+  platform: string;
+  playerId: string;
+  playerNum: string;
+  constructor(private getStatsService:GetStatsService) { }
+
+  getStats(platform:string, playerId:string, playerNum:string){
+    this.errorMessage = null;
+
+    this.getStatsService.getStats(platform,playerId,playerNum).subscribe(
+      data => console.log(data),
+      error => this.errorMessage = <any>error);
+
+  }
 
   ngOnInit() {
+    this.getStats(this.platform, this.playerId, this.playerNum);
   }
 
 }

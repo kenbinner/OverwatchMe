@@ -15,7 +15,7 @@ public class StatResource {
     public String apiKey = "b92f295f-b1be-40ce-8b48-fc080fedf90d";
 
     //Works for psn and xbl, not for battlenet
-
+    
     @GetMapping(value="api/{platform}/{playerId}/{playerNum}")
     public ResponseEntity<String> getStats(@PathVariable("platform") String platform,
                                            @PathVariable("playerId") String playerId,
