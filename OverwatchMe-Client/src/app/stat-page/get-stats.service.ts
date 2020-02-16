@@ -12,7 +12,7 @@ export class GetStatsService {
   constructor(private http:HttpClient) {  }
 
   getStats(platform:string, playerId:string, playerNum:string):Observable<any>{
-    let url: string = "localhost:8080/api/psn/Heathenx/0";
+    let url: string = "http://localhost:8080/api/getStats/" + platform + "/" + playerId + "/" + playerNum; // prevent CORS issue by checking url is correct
     return this.http.get<any>(url)
         .pipe(
             catchError(this.handleError)

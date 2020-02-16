@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping
+@RequestMapping("api")
 public class StatResource {
 
     public String apiUrl = "https://public-api.tracker.gg/v2/overwatch/standard/profile/";
     public String apiKey = "b92f295f-b1be-40ce-8b48-fc080fedf90d";
 
     //Works for psn and xbl, not for battlenet
-    
-    @GetMapping(value="api/{platform}/{playerId}/{playerNum}")
+    @GetMapping(value="getStats/{platform}/{playerId}/{playerNum}")
     public ResponseEntity<String> getStats(@PathVariable("platform") String platform,
                                            @PathVariable("playerId") String playerId,
                                            @PathVariable("playerNum") String playerNum){
