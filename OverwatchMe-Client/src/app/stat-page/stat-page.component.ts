@@ -12,23 +12,29 @@ export class StatPageComponent implements OnInit {
   data1:string;
   data2:string;
 
+  view:string = "Casual";
   errorMessage: string;
+  portraitId: number;
+  errorFound: boolean = false;
   pc: boolean = false;
   loading: boolean = true;
   platform: string;
   playerId: string;
-  playerNum: string;
+  profileData: any;
   constructor(private getStatsService:GetStatsService, private data:DataService) { }
 
-  getStats(platform:string, playerId:string, playerNum:string){
+  getStats(platform:string, playerId:string){
     this.errorMessage = null;
 
-    this.getStatsService.getStats(platform,playerId,playerNum).subscribe(
+    this.getStatsService.getStats(platform,playerId).subscribe(
       (stats) => {
         console.log(stats);
+        this.profileData = stats;
         this.loading = false;
       },
       (error) => {
+        this.loading = false;
+        this.errorFound = true;
         this.errorMessage = <any>error
       }
       );
@@ -49,17 +55,15 @@ export class StatPageComponent implements OnInit {
 
     for(let i = 0; i < this.playerId.length; i++){
       if(this.playerId.charAt(i)=='#'){
-        var splitArr = this.playerId.split("#", 1);
-        splitArr[0] = this.playerId;
-        splitArr[1] = this.playerNum;
+        var splitArr = this.playerId.split("#", 2);
+        this.playerId = splitArr[0] + "-" + splitArr[1];
+        console.log(this.playerId);
         this.pc = true;
       }
     }
-    if(!this.pc){
-      this.playerNum = "0";
-    }
 
-    this.getStats(this.platform, this.playerId, this.playerNum);
+    this.portraitId = Math.floor(Math.random() * 21 ) + 1;
+    this.getStats(this.platform, this.playerId);
   }
 
 }

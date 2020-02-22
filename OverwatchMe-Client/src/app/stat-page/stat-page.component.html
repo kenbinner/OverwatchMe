@@ -2,11 +2,95 @@
   <div *ngIf="loading==true">
     <h3 id="loading">Loading stats...</h3>
   </div>
-  
-  <div *ngIf="loading==false">
-    <p>Stats Page</p>
-  {{data1}}
-  {{data2}}
-  <button class="btn btn-warning" [routerLink]="['']">Back</button>
+
+  <div *ngIf="errorFound==true">
+    <h3>{{errorMessage}}</h3>
+    <button class="btn btn-warning" [routerLink]="['']">Go Back</button>
+  </div>
+
+  <div *ngIf="loading==false && errorFound ==false">
+    <span id=playerId>{{playerId}} </span><span id=platform>{{platform}}</span>
+    <img [src]="'assets/pics/portraits/' + portraitId + '.png'" class="img-responsive"
+      style="float: right; height: 170px;">
+
+    
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a data-toggle="tab" class="nav-link tabs active"  (click)="view = 'Casual'">Casual</a>
+        </li>
+        <li class="nav-item">
+          <a data-toggle="tab" class="nav-link tabs"  (click)="view = 'Competitive'">Competitive</a>
+        </li>
+      </ul>
+
+      
+        <div class="darkpanel">
+
+        <!-- Casual -->
+        <div *ngIf="view == 'Casual'" >
+
+          <div class="row">
+            <div class="column col-sm-3 big-stats">
+              <h2>{{profileData.data.segments[0].stats.kd.displayValue}}</h2>
+              <p>K/D Ratio</p>
+            </div>
+            <div class="column col-sm-3 big-stats">
+              <h2>{{profileData.data.segments[0].stats.kd.displayValue}}</h2>
+              <p>K/D Ratio</p>
+            </div>
+            <div class="column col-sm-3 big-stats">
+              <h2>{{profileData.data.segments[0].stats.kd.displayValue}}</h2>
+              <p>K/D Ratio</p>
+            </div>
+            <div class="column col-sm-3 big-stats">
+              <h2>{{profileData.data.segments[0].stats.kd.displayValue}}</h2>
+              <p>K/D Ratio</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column col-sm-6">
+              <div class="panel">
+                <p>Damage Done: {{profileData.data.segments[0].stats.damageDone.displayValue}}</p>
+                <p>Healing Done: {{profileData.data.segments[0].stats.healingDone.value}}</p>
+              </div>
+            </div>
+            <div class="column col-sm-6">
+              <div class="panel">
+                <p>Casual K/D: {{profileData.data.segments[0].stats.kd.displayValue}}</p>
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- Competitive -->
+        <div *ngIf="view == 'Competitive'" >
+
+          <div class="row">
+            <div class="column col-sm-6">
+              <div class="panel">
+                <p>Damage Done: {{profileData.data.segments[1].stats.damageDone.displayValue}}</p>
+                <p>Healing Done: {{profileData.data.segments[1].stats.healingDone.value}}</p>
+              </div>
+            </div>
+            <div class="column col-sm-6">
+              <div class="panel">
+                <p>Competitive K/D: {{profileData.data.segments[1].stats.kd.displayValue}}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    
+    
+
+
+
+    <button class="btn btn-warning" [routerLink]="['']">Go Back</button>
   </div>
 </div>

@@ -1,3 +1,31 @@
-#loading {
+#loading, #playerId, #platform {
   font-family: "Overfont";
+}
+
+#playerId {
+  font-size: 90pt;
+}
+
+#platform {
+  font-size: 40pt;
+}
+
+.darkpanel {
+  background-color: rgb(70, 70, 70);
+  background-image: linear-gradient(rgb(70, 70, 70),rgb(148, 148, 148));
+  padding: 2em;
+}
+
+.tabs{
+  color: rgb(255, 238, 0);
+  background-color: rgb(70, 70, 70);
+}
+
+.btn{
+  margin-top: 20px;
+}
+
+.big-stats{
+  text-align: center;
+  color: rgb(255, 238, 0);
 }
