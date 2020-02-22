@@ -23,6 +23,7 @@
         <li class="nav-item">
           <a data-toggle="tab" class="nav-link tabs" (click)="view = 'Competitive'">Competitive</a>
         </li>
+        <small class="text-muted" id="updated">last updated: {{profileData.data.metadata.lastUpdated.displayValue}}</small>
       </ul>
 
       
@@ -146,10 +147,6 @@
           </div>
 
       </div>
-    
-    
-
-
 
     <button class="btn btn-warning" [routerLink]="['']">Go Back</button>
   </div>
