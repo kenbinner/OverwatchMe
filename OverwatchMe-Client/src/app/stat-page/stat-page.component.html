@@ -9,9 +9,11 @@
   </div>
 
   <div *ngIf="loading==false && errorFound ==false">
-    <span id=playerId>{{playerId}} </span><span id=platform>{{platform}}</span>
-    <img [src]="'assets/pics/portraits/' + portraitId + '.png'" class="img-responsive"
-      style="float: right; height: 170px;">
+    <span id=playerId>{{playerId}} </span><span id=platform>{{platform}} <img [src]="'assets/pics/logos/' + 
+      profileData.data.platformInfo.platformSlug + '.png'" style="height: 30px;"></span>
+    <!-- <img [src]="'assets/pics/portraits/' + portraitId + '.png'" class="img-responsive"
+      style="float: right; height: 170px;"> -->
+    <img src="assets/pics/overwatch-logo.png" style="float: right; height: 140px;">
 
     
       <ul class="nav nav-tabs" id="myTab">

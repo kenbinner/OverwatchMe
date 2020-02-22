@@ -14,7 +14,6 @@ export class StatPageComponent implements OnInit {
 
   view:string = "Casual";
   errorMessage: string;
-  portraitId: number;
   errorFound: boolean = false;
   pc: boolean = false;
   loading: boolean = true;
@@ -62,7 +61,6 @@ export class StatPageComponent implements OnInit {
       }
     }
 
-    this.portraitId = Math.floor(Math.random() * 21 ) + 1;
     this.getStats(this.platform, this.playerId);
   }
 
