@@ -10,15 +10,25 @@
   font-size: 40pt;
 }
 
-.darkpanel {
+.darkpanel-main, .darkpanel {
   background-color: rgb(70, 70, 70);
+  color: white;
+}
+
+.darkpanel-main{
   background-image: linear-gradient(rgb(70, 70, 70),rgb(148, 148, 148));
   padding: 2em;
 }
 
-.tabs{
+.darkpanel{
+  padding: 1em;
+  margin-top: 1em;
+}
+
+#myTab li a{
   color: rgb(255, 238, 0);
   background-color: rgb(70, 70, 70);
+  font-size: 10pt;
 }
 
 .btn{
@@ -28,4 +38,15 @@
 .big-stats{
   text-align: center;
   color: rgb(255, 238, 0);
+  background-image: linear-gradient( rgb(70, 70, 70),rgba(255, 0, 0, 0));
+}
+
+.heading{
+  color: rgb(255, 238, 0);
+  font-family: "Overfont";
+  font-size: 20pt;
+}
+
+.biggie{
+  font-family: "Overfont";
 }

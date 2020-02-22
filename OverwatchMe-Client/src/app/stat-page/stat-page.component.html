@@ -14,17 +14,17 @@
       style="float: right; height: 170px;">
 
     
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs" id="myTab">
         <li class="nav-item">
-          <a data-toggle="tab" class="nav-link tabs active"  (click)="view = 'Casual'">Casual</a>
+          <a data-toggle="tab" class="nav-link tabs active" (click)="view = 'Casual'">Casual</a>
         </li>
         <li class="nav-item">
-          <a data-toggle="tab" class="nav-link tabs"  (click)="view = 'Competitive'">Competitive</a>
+          <a data-toggle="tab" class="nav-link tabs" (click)="view = 'Competitive'">Competitive</a>
         </li>
       </ul>
 
       
-        <div class="darkpanel">
+        <div class="darkpanel-main">
 
         <!-- Casual -->
         <div *ngIf="view == 'Casual'" >
@@ -32,33 +32,53 @@
           <div class="row">
             <div class="column col-sm-3 big-stats">
               <h2>{{profileData.data.segments[0].stats.kd.displayValue}}</h2>
-              <p>K/D Ratio</p>
+              <p class="biggie">K/D Ratio</p>
             </div>
             <div class="column col-sm-3 big-stats">
-              <h2>{{profileData.data.segments[0].stats.kd.displayValue}}</h2>
-              <p>K/D Ratio</p>
+              <h2>{{profileData.data.segments[0].stats.wlPercentage.displayValue}}</h2>
+              <p class="biggie">W/L Percentage</p>
             </div>
             <div class="column col-sm-3 big-stats">
-              <h2>{{profileData.data.segments[0].stats.kd.displayValue}}</h2>
-              <p>K/D Ratio</p>
+              <h2>{{profileData.data.segments[0].stats.eliminations.displayValue}}</h2>
+              <p class="biggie">Eliminations</p>
             </div>
             <div class="column col-sm-3 big-stats">
-              <h2>{{profileData.data.segments[0].stats.kd.displayValue}}</h2>
-              <p>K/D Ratio</p>
+              <h2>{{profileData.data.segments[0].stats.medals.displayValue}}</h2>
+              <p class="biggie">Medals</p>
             </div>
           </div>
 
           <div class="row">
             <div class="column col-sm-6">
-              <div class="panel">
-                <p>Damage Done: {{profileData.data.segments[0].stats.damageDone.displayValue}}</p>
-                <p>Healing Done: {{profileData.data.segments[0].stats.healingDone.value}}</p>
+              <div class="darkpanel">
+                <span class="heading">Eliminations/Deaths</span>
+                <p>Eliminations: {{profileData.data.segments[0].stats.eliminations.displayValue}}</p>
+                <p>Deaths: {{profileData.data.segments[0].stats.deaths.displayValue}}</p>
+                <p>Most Eliminations: {{profileData.data.segments[0].stats.mostEliminations.displayValue}}</p> 
+              </div>
+              <div class="darkpanel">
+                <span class="heading">Kill Types</span>
+                <p>Multi Kills: {{profileData.data.segments[0].stats.multiKills.displayValue}}</p>
+                <p>Solo Kills: {{profileData.data.segments[0].stats.soloKills.displayValue}}</p>
+                <p>Objective Kills: {{profileData.data.segments[0].stats.objectiveKills.displayValue}}</p>
+                <p>Environmental Kills: {{profileData.data.segments[0].stats.environmentalKills.displayValue}}</p>
+                <p>Final Blows: {{profileData.data.segments[0].stats.finalBlows.displayValue}}</p>
               </div>
             </div>
             <div class="column col-sm-6">
-              <div class="panel">
-                <p>Casual K/D: {{profileData.data.segments[0].stats.kd.displayValue}}</p>
-                
+              <div class="darkpanel">
+                <span class="heading">Damage/ Healing</span>
+                <p>Damage Done: {{profileData.data.segments[0].stats.damageDone.displayValue}}</p>
+                <p>Healing Done: {{profileData.data.segments[0].stats.healingDone.displayValue}}</p>
+                <p>Most Damage Done: {{profileData.data.segments[0].stats.mostDamageDone.displayValue}}</p>
+                <p>Most Healing Done: {{profileData.data.segments[0].stats.mostHealingDone.displayValue}}</p>
+              </div>
+              <div class="darkpanel">
+                <span class="heading">Assists</span>
+                <p>Offensive Assists: {{profileData.data.segments[0].stats.offensiveAssists.displayValue}}</p>
+                <p>Defensive Assists: {{profileData.data.segments[0].stats.defensiveAssists.displayValue}}</p>
+                <p>Most Offensive Assists: {{profileData.data.segments[0].stats.mostOffensiveAssists.displayValue}}</p>
+                <p>Most Defensive Assists: {{profileData.data.segments[0].stats.mostDefensiveAssists.displayValue}}</p>
               </div>
             </div>
           </div>
@@ -70,20 +90,58 @@
         <div *ngIf="view == 'Competitive'" >
 
           <div class="row">
-            <div class="column col-sm-6">
-              <div class="panel">
-                <p>Damage Done: {{profileData.data.segments[1].stats.damageDone.displayValue}}</p>
-                <p>Healing Done: {{profileData.data.segments[1].stats.healingDone.value}}</p>
-              </div>
+            <div class="column col-sm-3 big-stats">
+              <h2>{{profileData.data.segments[1].stats.kd.displayValue}}</h2>
+              <p class="biggie">K/D Ratio</p>
             </div>
-            <div class="column col-sm-6">
-              <div class="panel">
-                <p>Competitive K/D: {{profileData.data.segments[1].stats.kd.displayValue}}</p>
-              </div>
+            <div class="column col-sm-3 big-stats">
+              <h2>{{profileData.data.segments[1].stats.wlPercentage.displayValue}}</h2>
+              <p class="biggie">W/L Percentage</p>
+            </div>
+            <div class="column col-sm-3 big-stats">
+              <h2>{{profileData.data.segments[1].stats.eliminations.displayValue}}</h2>
+              <p class="biggie">Eliminations</p>
+            </div>
+            <div class="column col-sm-3 big-stats">
+              <h2>{{profileData.data.segments[1].stats.medals.displayValue}}</h2>
+              <p class="biggie">Medals</p>
             </div>
           </div>
 
-        </div>
+          <div class="row">
+            <div class="column col-sm-6">
+              <div class="darkpanel">
+                <span class="heading">Eliminations/Deaths</span>
+                <p>Eliminations: {{profileData.data.segments[1].stats.eliminations.displayValue}}</p>
+                <p>Deaths: {{profileData.data.segments[1].stats.deaths.displayValue}}</p>
+                <p>Most Eliminations: {{profileData.data.segments[1].stats.mostEliminations.displayValue}}</p> 
+              </div>
+              <div class="darkpanel">
+                <span class="heading">Kill Types</span>
+                <p>Multi Kills: {{profileData.data.segments[1].stats.multiKills.displayValue}}</p>
+                <p>Solo Kills: {{profileData.data.segments[1].stats.soloKills.displayValue}}</p>
+                <p>Objective Kills: {{profileData.data.segments[1].stats.objectiveKills.displayValue}}</p>
+                <p>Environmental Kills: {{profileData.data.segments[1].stats.environmentalKills.displayValue}}</p>
+                <p>Final Blows: {{profileData.data.segments[1].stats.finalBlows.displayValue}}</p>
+              </div>
+            </div>
+            <div class="column col-sm-6">
+              <div class="darkpanel">
+                <span class="heading">Damage/ Healing</span>
+                <p>Damage Done: {{profileData.data.segments[1].stats.damageDone.displayValue}}</p>
+                <p>Healing Done: {{profileData.data.segments[1].stats.healingDone.displayValue}}</p>
+                <p>Most Damage Done: {{profileData.data.segments[1].stats.mostDamageDone.displayValue}}</p>
+                <p>Most Healing Done: {{profileData.data.segments[1].stats.mostHealingDone.displayValue}}</p>
+              </div>
+              <div class="darkpanel">
+                <span class="heading">Assists</span>
+                <p>Offensive Assists: {{profileData.data.segments[1].stats.offensiveAssists.displayValue}}</p>
+                <p>Defensive Assists: {{profileData.data.segments[1].stats.defensiveAssists.displayValue}}</p>
+                <p>Most Offensive Assists: {{profileData.data.segments[1].stats.mostOffensiveAssists.displayValue}}</p>
+                <p>Most Defensive Assists: {{profileData.data.segments[1].stats.mostDefensiveAssists.displayValue}}</p>
+              </div>
+            </div>
+          </div>
 
       </div>
     
