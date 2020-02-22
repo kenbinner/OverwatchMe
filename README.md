@@ -1,5 +1,5 @@
 # OverwatchMe
-!alt[[
+!alt[]
 
 A stat tracker app for Overwatch
 
