@@ -11,7 +11,7 @@ import { DataService } from './data.service';
 export class HomeComponent implements OnInit {
 
   constructor(private router: Router, private data: DataService) { }
-  platforms:string[] = ["Xbox","Playstation"];
+  platforms:string[] = ["Xbox","Playstation","PC"];
 
   playerForm: FormGroup;
   platform: FormControl;

@@ -50,11 +50,13 @@ export class StatPageComponent implements OnInit {
       this.platform = "xbl";
     }else if(this.platform == "Playstation"){
       this.platform = "psn";
+    }else if(this.platform == "PC"){
+      this.platform = "battlenet";
     }
 
     for(let i = 0; i < this.playerId.length; i++){
       if(this.playerId.charAt(i)=='#'){
-        var splitArr = this.playerId.split("#", 2);
+        var splitArr = this.playerId.split("#");
         this.playerId = splitArr[0] + "-" + splitArr[1];
         console.log(this.playerId);
         this.pc = true;
@@ -62,6 +64,14 @@ export class StatPageComponent implements OnInit {
     }
 
     this.getStats(this.platform, this.playerId);
+    for(let i = 0; i < this.playerId.length; i++){
+      if(this.playerId.charAt(i)=='-'){
+        var splitArr = this.playerId.split("-");
+        this.playerId = splitArr[0] + "#" + splitArr[1];
+        console.log(this.playerId);
+        this.pc = true;
+      }
+    }
   }
 
 }
