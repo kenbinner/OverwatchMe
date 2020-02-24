@@ -1,7 +1,7 @@
 # OverwatchMe
-![alt image](https://raw.githubusercontent.com/kenbinner/OverwatchMe/master/animation.gif)
-
 A stat tracker app for Overwatch
+
+![alt image](https://raw.githubusercontent.com/kenbinner/OverwatchMe/master/animation.gif)
 
 ## Front end 
 Front end is created using Angular.
@@ -21,3 +21,5 @@ https://tracker.gg/developers/docs/getting-started
 https://angular.io/docs
 
 ## Licensing
+
+Licensed under the [MIT License](LICENSE).
