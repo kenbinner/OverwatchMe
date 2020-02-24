@@ -3,7 +3,21 @@
 
 A stat tracker app for Overwatch
 
-```Java 
-int num = 0;
-```
+## Front end 
+Front end is created using Angular.
 
+Start by typing into terminal "ng serve --o".
+
+## Back end
+
+Back end is created using Spring and Java 13.
+
+Run project as java application to run.
+
+## Documentation
+
+https://spring.io/docs
+https://tracker.gg/developers/docs/getting-started
+https://angular.io/docs
+
+## Licensing
