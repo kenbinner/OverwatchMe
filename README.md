@@ -6,7 +6,10 @@ A stat tracker app for Overwatch
 ## Front end 
 Front end is created using Angular.
 
-Start by typing into terminal "ng serve --o".
+Start by opening up terminal in client folder and typing:
+```bash
+ng serve --o
+```
 
 ## Back end
 
