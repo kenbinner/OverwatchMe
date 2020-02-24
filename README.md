@@ -17,7 +17,9 @@ Run project as java application to run.
 ## Documentation
 
 https://spring.io/docs
+
 https://tracker.gg/developers/docs/getting-started
+
 https://angular.io/docs
 
 ## Licensing
