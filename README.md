@@ -1,12 +1,12 @@
 # OverwatchMe
-A stat tracker app for Overwatch. Front end is created using Angular. Back end is created using Spring and Java 13.
+A stat tracker app for Overwatch. Front end is created using Angular. Back end is created using Springboot and Java 13.
 
 ![alt image](https://raw.githubusercontent.com/kenbinner/OverwatchMe/master/animation.gif)
 
 
 ## What I Learned
-- Spring and Angular.
-- Retrive data using an external API and displaying it on a UI.
+- Full stack development with Springboot and Angular.
+- Retrieve data using an external web API and displaying it on a UI.
 
 ## Start up
 ### Front End
@@ -16,9 +16,9 @@ ng serve --o
 ```
 
 ### Back End
-Back end is created using Spring and Java 13.
+Back end is created using Springboot and Java 13.
 
-Run project as java application to run.
+Run App.java file as a java application to run.
 
 ## Documentation
 
